@@ -1,61 +1,28 @@
-const inputRef = document.querySelector(".task4__input");
-const buttonSendRef = document.querySelector(".task4__btn-send");
-const buttonExitRef = document.querySelector(".task4__btn-exit");
-
-buttonExitRef.addEventListener("click", () => {
-    console.log('Отменено пользователем!');
-});
-
-buttonSendRef.addEventListener("click", () => {
-    const credits = 23580;
-    const pricePerDroid = 3000;
-    let message;
-    let quantity = inputRef.value;
-    quantity = Number(quantity);
-    if (quantity > 0) {
-        let totalPrice = pricePerDroid * quantity;
-        if (totalPrice > credits) {
-            message = 'Недостаточно средств на счету!';
-        }
-        else {
-            const balance = credits - totalPrice;
-            message = `Вы купили ${quantity} дроидов, на счету осталось ${balance} кредитов.`;
-        }
+const formatString = function(string) {
+    if (string.length <= 40) {
+        return string;
     }
     else {
-        message = "Введите количество от 1";
+        string = string.slice(0, 40);
+        return string;
     }
+};
 
-    console.log(message);
-});
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// вернется оригинальная строка
 
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+// вернется форматированная строка
 
+console.log(formatString('Curabitur ligula sapien.'));
+// вернется оригинальная строка
 
-
-
-
-
-// const credits = 23580;
-// const pricePerDroid = 3000;
-// let message;
-// let totalPrice;
-// const quantity = prompt("введите количество дронов");
-// const quantityNumber = Number(quantity);
-// if (quantity === null) {
-//     message = 'Отменено пользователем!';
-// }
-// else if (Number.isNaN(quantityNumber) === false && quantityNumber > 0) {
-//     totalPrice = pricePerDroid * Number(quantity);
-//     if (totalPrice > credits) {
-//         message = 'Недостаточно средств на счету!';
-//     }
-//     else {
-//         const balance = credits - totalPrice;
-//         message = `Вы купили ${quantityNumber} дроидов, на счету осталось ${balance} кредитов.`;
-//     }
-// }
-// else {
-//     message = "Введите количество от 1";
-// }
-
-// console.log(message);
+console.log(
+  formatString(
+    'Nunc sed turpis. Curabitur a felis in nunc fringilla tristique.',
+  ),
+);
+// вернется форматированная строка

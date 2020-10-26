@@ -1,99 +1,17 @@
-const inputRef = document.querySelector(".task5__input");
-const buttonSendRef = document.querySelector(".task5__btn-send");
-const buttonExitRef = document.querySelector(".task5__btn-exit");
+const checkForSpam = function(message) {
+    message = message.toLowerCase();
+    console.log(message);
+    message = message.includes('sale') || message.includes('spam') ? true : false;
+    return message;
+};
 
-buttonExitRef.addEventListener("click", () => {
-    console.log('Отменено пользователем!');
-});
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(checkForSpam('Latest technology news')); // false
 
-buttonSendRef.addEventListener("click", () => {
-    let cost;
-    let country = inputRef.value;
-    country = country.toLowerCase();
+console.log(checkForSpam('JavaScript weekly newsletter')); // false
 
-    switch (country) {
-        case 'китай':
-            country = "Китай";
-            cost = 100;
-            break;
+console.log(checkForSpam('Get best sale offers now!')); // true
 
-        case 'чили':
-            country = "Чили";
-            cost = 250;
-            break;
-
-        case 'австралия':
-            country = "Австралия";
-            cost = 170;
-            break;
-
-        case 'индия':
-            country = "Индия";
-            cost = 80;
-            break;
-
-        case 'ямайка':
-            country = "Ямайка";
-            cost = 120;
-            break;
-
-        default: console.log('В вашей стране доставка не доступна');
-    }
-
-    if (cost != undefined) {
-        console.log(`Доставка в ${country} будет стоить ${cost} кредитов`);
-    }
-});
-
-
-
-
-
-
-// const countryPrompt = prompt("Введите страну");
-
-// switch (countryPrompt) {
-//     case null:
-//         console.log('Отменено пользователем!');
-//         break;
-
-//     default:
-
-
-//         let country = countryPrompt.toLowerCase();
-//         let cost;
-
-//         switch (country) {
-//             case 'китай':
-//                 country = "Китай";
-//                 cost = 100;
-//                 break;
-
-//             case 'чили':
-//                 country = "Чили";
-//                 cost = 250;
-//                 break;
-
-//             case 'австралия':
-//                 country = "Австралия";
-//                 cost = 170;
-//                 break;
-
-//             case 'индия':
-//                 country = "Индия";
-//                 cost = 80;
-//                 break;
-
-//             case 'ямайка':
-//                 country = "Ямайка";
-//                 cost = 120;
-//                 break;
-
-//             default: console.log('В вашей стране доставка не доступна');
-//         }
-
-//         if (cost != undefined) {
-//             console.log(`Доставка в ${country} будет стоить ${cost} кредитов`);
-//         }
-
-// }
+console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
