@@ -16,6 +16,7 @@ const addLogin = function(allLogins, login) {
         return 'Такой логин уже используется!';
     }
 
+    allLogins.push(login);
     return 'Логин успешно добавлен!';
 };
 
