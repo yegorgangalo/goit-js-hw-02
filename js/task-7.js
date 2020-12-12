@@ -1,11 +1,11 @@
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 const isLoginValid = function(login) {
-    return 4 <= login.length && login.length <= 16 ? true : false;
+    return 4 <= login.length && login.length <= 16;
 };
 
 const isLoginUnique = function(allLogins, login) {
-  return !allLogins.includes(login) ? true : false;
+  return !allLogins.includes(login);
 };
 
 const addLogin = function(allLogins, login) {
